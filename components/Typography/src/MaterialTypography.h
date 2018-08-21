@@ -28,3 +28,19 @@
 #import "UIFont+MaterialSimpleEquality.h"
 #import "UIFont+MaterialTypography.h"
 #import "UIFontDescriptor+MaterialTypography.h"
+
+#if !defined(__IPHONE_11_0)
+#error "Canary for removing Xcode 8"
+#endif
+
+// HACK HACK HACK
+// Manually set minimum iOS deplyment target to test against
+#define ___IEG_MIN_IOS_DEPLOYMENT_TARGET __IPHONE_9_0
+
+#if !defined(___IEG_MIN_IOS_DEPLOYMENT_TARGET)
+#error "Canary for definition of ___IEG_MIN_IOS_DEPLOYMENT_TARGET"
+#endif
+
+#if ___IEG_MIN_IOS_DEPLOYMENT_TARGET >= __IPHONE_OS_VERSION_MIN_REQUIRED
+#error "Canary for ___IEG_MIN_IOS_DEPLOYMENT_TARGET >= ___IEG_MIN_IOS_DEPLOYMENT_TARGET"
+#endif
